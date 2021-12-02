@@ -1,0 +1,41 @@
+Arguments: 
+  /Users/gsasouza/.nvm/versions/node/v16.13.0/bin/node /usr/local/Cellar/yarn/1.22.17/libexec/bin/yarn.js add apollo-server-graphql
+
+PATH: 
+  /Users/gsasouza/Downloads/google-cloud-sdk/bin:/Users/gsasouza/opt/anaconda3/bin:/Users/gsasouza/opt/anaconda3/condabin:/Users/gsasouza/.nvm/versions/node/v16.13.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/gsasouza/.chk/chk/bin:/Users/gsasouza/Library/Android/sdk/emulator:/Users/gsasouza/Library/Android/sdk/tools:/Users/gsasouza/Library/Android/sdk/tools/bin:/Users/gsasouza/Library/Android/sdk/platform-tool:/Users/gsasouza/.local/share
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/apollo-server-graphql: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.17/libexec/lib/cli.js:67029:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.17/libexec/lib/cli.js:140883:22)
+      at Request.emit (node:events:390:28)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.17/libexec/lib/cli.js:141855:10)
+      at Request.emit (node:events:390:28)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.17/libexec/lib/cli.js:141777:12)
+      at Object.onceWrapper (node:events:509:28)
+      at IncomingMessage.emit (node:events:402:35)
+      at endReadableNT (node:internal/streams/readable:1343:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
