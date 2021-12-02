@@ -1,0 +1,14 @@
+button {
+    margin: 0 1rem;
+}
+
+.input-container {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.input-container > input {
+    flex: 1;
+}
