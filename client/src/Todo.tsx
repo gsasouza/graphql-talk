@@ -1,21 +1,29 @@
 import React from "react";
-import { gql, useMutation } from "@apollo/client";
+import { gql, Reference, useMutation } from "@apollo/client";
 import "./Todo.css";
 
 import { TodoFragment } from "./__generated__/TodoFragment";
 
 type Props = {
   todo: TodoFragment;
-  onRemove: () => void;
 };
 
-const Todo: React.FC<Props> = ({ todo, onRemove }) => {
-  const [mutate] = useMutation(RemoveTodoMutation);
+const Todo: React.FC<Props> = ({ todo }) => {
+  const [mutate] = useMutation(RemoveTodoMutation, {
+    update(cache) {
+      cache.modify({
+        fields: {
+          todo(existingTodos = [], { readField }) {
+            return existingTodos.filter((ref: Reference) => todo.id !== readField(id, ref))
+          }
+        }
+      });
+    }
+  });
   const { content, id } = todo;
 
   const handleRemove = async () => {
     await mutate({ variables: { input: { id } } });
-    onRemove();
   };
 
   return (
@@ -27,18 +35,18 @@ const Todo: React.FC<Props> = ({ todo, onRemove }) => {
 };
 
 export const TODO_FRAGMENT = gql`
-  fragment TodoFragment on Todo {
-    id
-    createdAt
-    content
-  }
+    fragment TodoFragment on Todo {
+        id
+        createdAt
+        content
+    }
 `;
 
 const RemoveTodoMutation = gql`
-  mutation RemoveTodoMutation($input: RemoveTodoMutationInput!) {
-    removeTodo(input: $input) {
-      error
+    mutation RemoveTodoMutation($input: RemoveTodoMutationInput!) {
+        removeTodo(input: $input) {
+            error
+        }
     }
-  }
 `;
 export default Todo;

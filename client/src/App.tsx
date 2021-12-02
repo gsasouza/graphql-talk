@@ -7,7 +7,7 @@ import AddTodoInput from "./AddTodoInput";
 import { AppQuery } from "./__generated__/AppQuery";
 
 function App() {
-  const { loading, error, data, refetch } = useQuery<AppQuery>(query);
+  const { loading, error, data } = useQuery<AppQuery>(query);
 
   if (loading) return <p>Loading...</p>;
   if (error || !data) return <p>Error :(</p>;
@@ -20,11 +20,11 @@ function App() {
         <h1>To-Do List</h1>
       </header>
       <section className="card">
-        <AddTodoInput onAdd={refetch} />
+        <AddTodoInput />
         <ul>
           {todos.map((todo) => (
-            <li>
-              <Todo todo={todo} onRemove={refetch} />
+            <li key={todo.id}>
+              <Todo todo={todo} />
             </li>
           ))}
         </ul>
