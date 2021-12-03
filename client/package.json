@@ -28,8 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "graphql:coverage": "graphql coverage",
-    "graphql:validate": "graphql validate"
+    "graphql:types": "apollo client:codegen --target typescript",
+    "graphql:download-schema": "apollo client:download-schema"
   },
   "eslintConfig": {
     "extends": [

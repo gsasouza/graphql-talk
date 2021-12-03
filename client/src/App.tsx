@@ -23,7 +23,7 @@ function App() {
         <AddTodoInput onAdd={refetch} />
         <ul>
           {todos.map((todo) => (
-            <li>
+            <li key={todo.id}>
               <Todo todo={todo} onRemove={refetch} />
             </li>
           ))}

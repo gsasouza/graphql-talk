@@ -14,7 +14,8 @@ const AddTodoInput: React.FC<Props> = (props) => {
   const handleAdd = async () => {
     const value = ref.current?.value;
     if (!value) return;
-    await mutate({ variables: { input: { title: value, content: value } } });
+    await mutate({ variables: { input: { content: value } } });
+    if (ref.current) ref.current.value = '';
     props.onAdd();
   };
 
@@ -26,7 +27,7 @@ const AddTodoInput: React.FC<Props> = (props) => {
           {loading ? "Loading..." : "Add Todo"}{" "}
         </button>
       </div>
-      {error && <span>{error}</span>}
+      {error && <span>{JSON.stringify(error)}</span>}
     </>
   );
 };
