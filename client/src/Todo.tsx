@@ -13,8 +13,8 @@ const Todo: React.FC<Props> = ({ todo }) => {
     update(cache) {
       cache.modify({
         fields: {
-          todo(existingTodos = [], { readField }) {
-            return existingTodos.filter((ref: Reference) => todo.id !== readField(id, ref))
+          todos(existingTodos = [], { readField }) {
+            return existingTodos.filter((ref: Reference) => todo.id !== readField('id', ref))
           }
         }
       });

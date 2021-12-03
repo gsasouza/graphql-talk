@@ -25,10 +25,10 @@ const AddTodoInput: React.FC<Props> = () => {
   const handleAdd = async () => {
     const value = ref.current?.value;
     if (!value) return;
+    if (ref.current) ref.current.value = '';
     await mutate({ variables: { input: { content: value } } });
   };
 
-  console.log(error)
   return (
     <>
       <div className="input-container">

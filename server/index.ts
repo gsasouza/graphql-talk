@@ -3,7 +3,6 @@ import { BaseEntry, MemoryDatabase } from "./MemoryDatabase";
 
 interface Todo extends BaseEntry {
   id: string;
-  title: string;
   content: string;
   createdAt?: Date;
 }
